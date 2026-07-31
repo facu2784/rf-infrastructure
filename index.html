@@ -1,36 +1,231 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RF Infrastructure Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF Infrastructure Solutions | Infraestructura IT & Ciberseguridad</title>
+    <meta name="description" content="Especialistas en Microsoft 365, Active Directory, Proxmox, VMware, Defender y Automatización IT. Soluciones de infraestructura inteligente.">
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RF Infrastructure Solutions">
+    <meta property="og:description" content="Servicios profesionales de Infraestructura IT, Cloud y Ciberseguridad.">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0078D4',
+                            darkBlue: '#005A9E',
+                            darkBg: '#0F172A',
+                            cardBg: '#1E293B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesomeIcons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-<header class="top"><div class="wrap">
-<h1>RF Infrastructure Solutions</h1>
-<nav>
-<a href="#servicios">Servicios</a>
-<a href="#tecnologias">Tecnologías</a>
-<a href="#contacto">Contacto</a>
-</nav></div></header>
-<section class="hero"><div class="wrap">
-<h2>Infraestructura inteligente. Seguridad sin límites.</h2>
-<p>Especialistas en Microsoft 365, Proxmox, VMware, Microsoft Defender y Active Directory.</p>
-<a class="btn" href="#contacto">Solicitar Auditoría</a>
-</div></section>
-<section id="servicios" class="wrap"><h2>Servicios</h2><div class="grid">
-<div class="card"><h3>Microsoft 365</h3></div>
-<div class="card"><h3>Proxmox</h3></div>
-<div class="card"><h3>VMware</h3></div>
-<div class="card"><h3>Microsoft Defender</h3></div>
-<div class="card"><h3>Active Directory</h3></div>
-<div class="card"><h3>Automatización</h3></div>
-</div></section>
-<section id="tecnologias" class="wrap"><h2>Tecnologías</h2><p>Windows Server · Hyper-V · VMware · Proxmox · Docker · Grafana · Fortinet · Cisco</p></section>
-<section id="contacto" class="wrap"><h2>Contacto</h2><p>Email: contacto@ejemplo.com</p></section>
-<footer><div class="wrap">©2026 RF Infrastructure Solutions</div></footer>
-<script src="assets/js/main.js"></script>
-</body></html>
+<body class="bg-gray-50 text-gray-800 dark:bg-brand-darkBg dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 dark:bg-brand-darkBg/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-brand-blue flex items-center gap-2">
+                        <i class="fa-solid fa-server"></i> RF Infrastructure
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 font-medium">
+                    <a href="#inicio" class="hover:text-brand-blue transition">Inicio</a>
+                    <a href="#servicios" class="hover:text-brand-blue transition">Servicios</a>
+                    <a href="#metricas" class="hover:text-brand-blue transition">Métricas</a>
+                    <a href="#casos" class="hover:text-brand-blue transition">Casos de Éxito</a>
+                    <a href="#contacto" class="hover:text-brand-blue transition">Contacto</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-brand-blue">
+                        <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                    </button>
+
+                    <a href="#contacto" class="bg-brand-blue hover:bg-brand-darkBlue text-white px-4 py-2 rounded-md transition">Agendar Consulta</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="theme-toggle-mobile" class="p-2 text-gray-600 dark:text-gray-300">
+                        <i class="fas fa-adjust"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-brand-darkBg border-b border-gray-200 dark:border-gray-800 px-4 pt-2 pb-4 space-y-3">
+            <a href="#inicio" class="block hover:text-brand-blue">Inicio</a>
+            <a href="#servicios" class="block hover:text-brand-blue">Servicios</a>
+            <a href="#metricas" class="block hover:text-brand-blue">Métricas</a>
+            <a href="#casos" class="block hover:text-brand-blue">Casos de Éxito</a>
+            <a href="#contacto" class="block hover:text-brand-blue">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto space-y-6">
+            <span class="bg-blue-100 dark:bg-blue-900/50 text-brand-blue dark:text-blue-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                Infraestructura IT & Ciberseguridad
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+                Infraestructura inteligente. <br>
+                <span class="text-brand-blue">Seguridad sin límites.</span>
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">
+                Diseñamos, optimizamos y protegemos el entorno tecnológico de tu empresa. Especialistas en entornos híbridos Microsoft, Virtualización y Automatización.
+            </p>
+            <div class="flex justify-center gap-4 pt-4">
+                <a href="#contacto" class="bg-brand-blue hover:bg-brand-darkBlue text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition">
+                    Ver Soluciones
+                </a>
+                <a href="#casos" class="border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 font-semibold px-6 py-3 rounded-lg transition">
+                    Casos de Éxito
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-16 bg-gray-100 dark:bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Nuestros Servicios Especilizados</h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">Soluciones de nivel empresarial adaptadas a tu infraestructura</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-white dark:bg-brand-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 dark:border-gray-800">
+                    <div class="text-brand-blue text-3xl mb-4"><i class="fa-brands fa-microsoft"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Microsoft 365 & AD</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Migraciones cloud, administración de Active Directory, Entra ID (Azure AD) y políticas de grupo (GPO).</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white dark:bg-brand-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 dark:border-gray-800">
+                    <div class="text-brand-blue text-3xl mb-4"><i class="fa-solid fa-server"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Virtualización (VMware / Proxmox)</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Consolidación de servidores, migraciones de VMware a Proxmox VE, alta disponibilidad y clusters.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white dark:bg-brand-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 dark:border-gray-800">
+                    <div class="text-brand-blue text-3xl mb-4"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Microsoft Defender & SecOps</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Implementación de EDR/XDR, hardening de servidores, políticas de seguridad y mitigación de amenazas.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-white dark:bg-brand-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 dark:border-gray-800">
+                    <div class="text-brand-blue text-3xl mb-4"><i class="fa-solid fa-terminal"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Automatización & PowerShell</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Desarrollo de scripts a medida para automatización de tareas de IT, onboarding y gestión de usuarios.</p>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="bg-white dark:bg-brand-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 dark:border-gray-800">
+                    <div class="text-brand-blue text-3xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Monitoreo (Grafana / Prometheus)</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Visibilidad en tiempo real de tu red y servidores con dashboards personalizados y alertas dinámicas.</p>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="bg-white dark:bg-brand-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 dark:border-gray-800">
+                    <div class="text-brand-blue text-3xl mb-4"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Backup & Disaster Recovery</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Estrategias de respaldo con Veeam Backup, copias inmutables y planes de continuidad de negocio (BCP).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Métricas -->
+    <section id="metricas" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-brand-blue mb-1">15+</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Años de Experiencia</p>
+            </div>
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-brand-blue mb-1">500+</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Servidores Administrados</p>
+            </div>
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-brand-blue mb-1">99.9%</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Disponibilidad Garantizada</p>
+            </div>
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-brand-blue mb-1">24/7</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Soporte Técnico Especializado</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-16 bg-gray-100 dark:bg-gray-900/50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold">Hablemos de tu Proyecto</h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">Déjanos tu mensaje y nos pondremos en contacto a la brevedad.</p>
+            </div>
+
+            <form action="https://formspree.io/f/tu-form-id" method="POST" class="bg-white dark:bg-brand-cardBg p-8 rounded-xl shadow-sm space-y-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Nombre completo</label>
+                    <input type="text" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-brand-blue outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Correo corporativo</label>
+                    <input type="email" name="email" required class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-brand-blue outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Mensaje o requerimiento</label>
+                    <textarea name="message" rows="4" required class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-brand-blue outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brand-blue hover:bg-brand-darkBlue text-white font-semibold py-3 rounded-lg transition">
+                    Enviar Consulta
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-brand-darkBg border-t border-gray-200 dark:border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>© 2026 RF Infrastructure Solutions. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/1234567890" target="_blank" rel="noopener" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 z-50 flex items-center justify-center text-2xl">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

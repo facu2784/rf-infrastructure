@@ -1,9 +1,9 @@
-body{margin:0;font-family:Inter,sans-serif;background:#f5f7fa;color:#1f2937}
-.wrap{width:min(1100px,92%);margin:auto}
-.top{background:#0078d4;color:#fff;position:sticky;top:0}.top .wrap{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-nav a{color:#fff;margin-left:18px;text-decoration:none}
-.hero{padding:90px 0;background:linear-gradient(135deg,#0078d4,#005a9e);color:#fff;text-align:center}
-.btn{display:inline-block;background:#fff;color:#0078d4;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-section{padding:60px 0}footer{background:#111;color:#fff;padding:25px 0;margin-top:40px}
+/* Ajustes personalizados específicos */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Transición suave para cambio de temas */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
